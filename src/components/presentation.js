@@ -124,9 +124,8 @@ class Presentation extends Component {
     return (
       <Grid fluid={true} style={containerStyle}>
         <Row>
-          <Col xs={6} sm={6} md={8}><div className="padding-md card-3"><SlideView socket={this.socket} isPresenter={this.state.isPresenter} /></div></Col>
-          <Col xs={0} md={0} md={0} />
-          <Col xs={6} sm={6} md={4}>{this.renderBoosterView()}</Col>
+          <Col xs={12} sm={6} md={8}><div className="padding-md card-3"><SlideView socket={this.socket} isPresenter={this.state.isPresenter} /></div></Col>
+          <Col xs={12} sm={6} md={4}>{this.renderBoosterView()}</Col>
         </Row>
       </Grid>
     );
