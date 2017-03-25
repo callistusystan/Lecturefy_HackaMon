@@ -6,6 +6,7 @@ class BoosterListItem extends Component {
 		super(props);
 
 		this.state = {
+			name: "",
 			booster: "",
 			yes: 0,
 			definitelyYes: 0,

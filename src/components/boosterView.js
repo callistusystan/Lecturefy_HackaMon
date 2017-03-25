@@ -24,7 +24,10 @@ class BoosterView extends Component {
 
     return (boosters.map(booster => {
       return (
-        <ListGroupItem key={booster}><Glyphicon glyph={booster.icon}/>{booster.name}</ListGroupItem>
+        <ListGroupItem key={booster.name}>
+            <Glyphicon glyph={booster.icon}/>
+            <BoosterListItem>{booster.name}</BoosterListItem>
+        </ListGroupItem>
 
         );
     }));
