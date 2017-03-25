@@ -11,35 +11,50 @@ class Presentation extends Component {
     super(props);
 
     this.state = {
-      isPresenter: true //(this.props.params.username.equals("lketchup") === true) ? true : false
+      isPresenter: false
     };
   }
 
-  renderPresenterView() {
+  componentWillMount() {
+    if (this.props.location.query.username == "lketchup") {
+      this.setState({
+        isPresenter: true
+      });
+    }
+  }
+
+  renderView() {
     return (
       <Grid fluid={true} style={containerStyle}>
         <Row>
-          <Col xs={6} md={6}><SlideView /></Col>
+          <Col xs={6} md={6}><SlideView isPresenter={this.state.isPresenter} /></Col>
           <Col xs={2} md={1} />
-          <Col xs={4} md={5}><BoosterView /></Col>
+          {this.renderBoosterView()}
         </Row>
       </Grid>
     );
   }
 
+  renderBoosterView() {
+    if (this.state.isPresenter) {
+      return (
+        <Col xs={4} md={5}><BoosterView /></Col>
+      );
+    }
+  }
+
   renderViewerView() {
     return (
       <Grid fluid={true} style={containerStyle}>
-        <SlideView  />
+        <SlideView isPresenter={this.state.isPresenter} />
       </Grid>
     );
   }
 
   render() {
-
     return (
-      <Jumbotron>
-        {(this.state.isPresenter) ? this.renderPresenterView() : this.renderViewerView()}
+      <Jumbotron style={{height:window.innerHeight}}>
+        {this.renderView()}
       </Jumbotron>
     );
   }
