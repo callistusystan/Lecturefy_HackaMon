@@ -1,7 +1,8 @@
 let AWS = require('aws-sdk');
 let fs = require('fs');
+let path = require('path');
 
-AWS.config.loadFromPath('./data/config.json'); // AWS S3 creds.
+AWS.config.loadFromPath('config.json'); // AWS S3 creds, add config.json to same dir as this file.
 
 function upload_file(path_to_pdf, lession_id) {
     console.log("path: " + path_to_pdf);
