@@ -9,7 +9,6 @@ class HomePage extends Component {
   }
 
   render() {
-    const containerStyle = {margin: 'auto'};
     return (
       <div>
         <Header />

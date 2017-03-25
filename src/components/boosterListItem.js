@@ -4,13 +4,22 @@ import { ListGroupItem } from 'react-bootstrap';
 class BoosterListItem extends Component {
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			expanded: false
+		};
 	}
 
 	render() {
 		return (
-	    <ListGroupItem>
-				{props.name}
-			</ListGroupItem>
+			<div>
+				<h4>
+					{this.props.children}
+				</h4>
+				<p>
+					Hello world
+				</p>
+			</div>
 	  );
 	}
 }
