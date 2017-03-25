@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Jumbotron } from 'react-bootstrap';
+import { Glyphicon, Button, Jumbotron } from 'react-bootstrap';
 
 class BoosterListItem extends Component {
 	constructor(props) {
@@ -25,12 +25,12 @@ class BoosterListItem extends Component {
 	}
 
 	onStopClick() {
-		
+
 	}
 
 	renderBooster() {
 		if (this.state.expanded) {
-			const jumbotronStyle = { padding: '10px 0px' };
+			const jumbotronStyle = { marginBottom: '0px', padding: '10px 0px' };
 			const buttonPadStyle = { marginRight: '10px' };
 
 			const { name } = this.state;
@@ -83,7 +83,7 @@ class BoosterListItem extends Component {
 		return (
 			<div>
 				<h4 onClick={this.toggleExpand.bind(this)}>
-					{this.props.children} {`\u00bb`}
+					{this.props.children} <Glyphicon glyph={this.props.icon}/>
 				</h4>
 				{this.renderBooster()}
 			</div>

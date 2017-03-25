@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Jumbotron, Grid, Row, Col } from 'react-bootstrap';
+import { Modal, Jumbotron, Grid, Row, Col } from 'react-bootstrap';
+import FullScreen from 'react-fullscreen';
 
 import SlideView from './slideView';
 import BoosterView from './boosterView';
@@ -23,13 +24,31 @@ class Presentation extends Component {
     }
   }
 
-  renderView() {
+  renderSlideView() {
+    if (this.state.isPresenter) {
+      return this.renderPresenterView();
+    }
+    return this.renderViewerView();
+  }
+
+  renderPresenterView() {
     return (
       <Grid fluid={true} style={containerStyle}>
         <Row>
-          <Col xs={6} md={6}><SlideView isPresenter={this.state.isPresenter} /></Col>
-          <Col xs={2} md={1} />
+          <Col xs={7} md={7}><SlideView isPresenter={this.state.isPresenter} /></Col>
+          <Col xs={1} md={1} />
           {this.renderBoosterView()}
+        </Row>
+      </Grid>
+    );
+  }
+
+  renderViewerView() {
+    return (
+      <Grid fluid={true} style={containerStyle}>
+        <Row>
+          <Col xs={8} md={8}><SlideView isPresenter={this.state.isPresenter} /></Col>
+          <Col xs={4} md={4} />
         </Row>
       </Grid>
     );
@@ -38,23 +57,15 @@ class Presentation extends Component {
   renderBoosterView() {
     if (this.state.isPresenter) {
       return (
-        <Col xs={4} md={5}><BoosterView /></Col>
+        <Col xs={4} md={4}><BoosterView /></Col>
       );
     }
-  }
-
-  renderViewerView() {
-    return (
-      <Grid fluid={true} style={containerStyle}>
-        <SlideView isPresenter={this.state.isPresenter} />
-      </Grid>
-    );
   }
 
   render() {
     return (
       <Jumbotron style={{height:window.innerHeight}}>
-        {this.renderView()}
+        {this.renderPresenterView()}
       </Jumbotron>
     );
   }
