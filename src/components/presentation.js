@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { Jumbotron, Grid, Row, Col } from 'react-bootstrap';
+
+import SlideView from './slideView';
+import BoosterView from './boosterView';
 
 class Presentation extends Component {
   constructor(props) {
@@ -6,11 +10,16 @@ class Presentation extends Component {
   }
 
   render() {
+
     return (
-      <div class="container-fluid">
-        <nav class="navbar navbar-inverse">
-        </nav>
-      </div>
+      <Jumbotron>
+        <Grid fluid={true}>
+          <Row>
+            <Col xs={6} md={6}><SlideView /></Col>
+            <Col xs={6} md={6}><BoosterView /></Col>
+          </Row>
+        </Grid>
+      </Jumbotron>
     );
   }
 }
