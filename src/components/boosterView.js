@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Button, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 import SearchBar from './searchBar';
+import BoosterListItem from './boosterListItem';
 
 const noPaddingStyle={padding: 0};
 
-const validBoosters = ["Chat", "Poll"];
+const validBoosters = ["Chat", "Poll", "Hackamon Poll"];
 
 class BoosterView extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class BoosterView extends Component {
 
     return (boosters.map(booster => {
       return (
-        <ListGroupItem key={booster}>{booster}</ListGroupItem>
+        <ListGroupItem key={booster}><BoosterListItem>{booster}</BoosterListItem></ListGroupItem>
       );
     }));
   }
@@ -64,7 +65,6 @@ class BoosterView extends Component {
   }
 
   render() {
-    const headerStyle = {marginTop: '0'};
     return (
       <div>
         <Row >

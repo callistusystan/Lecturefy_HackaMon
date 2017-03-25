@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Autosuggest from 'react-autosuggest';
 import {Glyphicon} from 'react-bootstrap';
 
@@ -10,6 +10,10 @@ const languages = [
   {
       icon: 'stats',
       name: 'Poll'
+  },
+  {
+      icon: 'stats',
+      name: 'Hackamon Poll'
   }
 ];
 
