@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Jumbotron } from 'react-bootstrap';
+import { ButtonGroup,ButtonToolbar, Button, Jumbotron } from 'react-bootstrap';
 
 import Header from './header';
 
@@ -13,11 +13,10 @@ class HomePage extends Component {
     return (
       <div>
         <Header />
-
-        <Jumbotron style={containerStyle}>
-          <Button bsStyle="primary">Login as Presenter</Button>
-          <Button bsStyle="primary">Login as Viewer</Button>
-        </Jumbotron>
+            <div className="buttonContainer">
+                <Button bsStyle="primary" bsSize="large" className="center-button">Login as Presenter</Button>
+                <Button bsStyle="primary" bsSize="large" className="center-button">Login as Viewer</Button>
+            </div>
       </div>
     );
   }
