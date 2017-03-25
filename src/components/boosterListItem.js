@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListGroupItem } from 'react-bootstrap';
+import { Jumbotron } from 'react-bootstrap';
 
 class BoosterListItem extends Component {
 	constructor(props) {
@@ -10,15 +10,31 @@ class BoosterListItem extends Component {
 		};
 	}
 
+	renderComponent() {
+		if (this.state.expanded) {
+			const componentStyle = { backgroundColor: 'gray' };
+			return (
+				<Jumbotron>
+					Hello world
+				</Jumbotron>
+			);
+		}
+	}
+
+	toggleExpand() {
+		this.setState({
+			expanded: !this.state.expanded
+		});
+		console.log(this.state.expanded);
+	}
+
 	render() {
 		return (
-			<div>
+			<div onClick={this.toggleExpand.bind(this)}>
 				<h4>
-					{this.props.children}
+					{this.props.children} {`\u00bb`}
 				</h4>
-				<p>
-					Hello world
-				</p>
+				{this.renderComponent()}
 			</div>
 	  );
 	}
