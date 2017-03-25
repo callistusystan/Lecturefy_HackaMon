@@ -6,7 +6,7 @@ import Presentation from './components/presentation';
 import HomePage from './components/homepage';
 import AuthcatePage from './components/authcate-page.js';
 export default (
-    <Route path="/" component={App} >
+    <Route path="/" >
         <IndexRoute component={HomePage} />
         <Route path="presentation" component={Presentation} />
         <Route path="login/" component={AuthcatePage}/>
