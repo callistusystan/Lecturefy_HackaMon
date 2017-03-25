@@ -3,17 +3,19 @@ body {
     padding: 0;
     font-family: sans-serif;
 }
-
 .App {
     text-align: center;
 }
 
-.App-header {
-    background-color: #222;
+.app-header {
+    text-align:left;
+    background-color: #006cab;
     padding: 2px;
     color: white;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-bottom: 30px;
 }
-
 .App-intro {
     font-size: large;
 }
@@ -31,6 +33,7 @@ body {
 
 body {
     font-family: Helvetica, sans-serif;
+    background-color: #FFFFFF;
 }
 
 .react-autosuggest__container {
@@ -161,4 +164,8 @@ body {
 .padding-md-h {
   padding-right: 30px;
   padding-left: 30px;
+}
+
+.card-3 {
+    box-shadow: 0 2px 15px rgba(0,0,0,0.19), 0 2px 6px rgba(0,0,0,0.23);
 }

@@ -3,8 +3,8 @@ import React from 'react';
 export default (props) => {
 	return (
     <div className="App">
-      <div className="App-header">
-        <h2>Welcome to Pineapple JS</h2>
+      <div className="app-header card-3">
+        <h1>Pineapple.JS</h1>
       </div>
       <div>
         {props.children}
