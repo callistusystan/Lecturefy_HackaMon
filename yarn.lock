@@ -4302,37 +4302,6 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-<<<<<<< Updated upstream
-react-autosuggest@^9.0.0:
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/react-autosuggest/-/react-autosuggest-9.0.0.tgz#976b02e20d05615d05c328c8f1384daf98587821"
-  dependencies:
-    react-autowhatever "^9.1.0"
-    shallow-equal "^1.0.0"
-
-react-autowhatever@^9.1.0:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/react-autowhatever/-/react-autowhatever-9.1.0.tgz#cc19ea05e0541ec04bb07fd53792215dc802bf75"
-  dependencies:
-    react-themeable "^1.1.0"
-    section-iterator "^2.0.0"
-
-=======
->>>>>>> Stashed changes
-react-bootstrap@^0.30.8:
-  version "0.30.8"
-  resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-0.30.8.tgz#4ceca8e138ce2351228c4a58d59db00c003ca9c0"
-  dependencies:
-    babel-runtime "^6.11.6"
-    classnames "^2.2.5"
-    dom-helpers "^3.2.0"
-    invariant "^2.2.1"
-    keycode "^2.1.2"
-    react-overlays "^0.6.12"
-    react-prop-types "^0.4.0"
-    uncontrollable "^4.0.1"
-    warning "^3.0.0"
-
 react-dev-utils@^0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-0.5.2.tgz#50d0b962d3a94b6c2e8f2011ed6468e4124bc410"
@@ -4731,15 +4700,7 @@ sax@^1.2.1, sax@~1.2.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.2.tgz#fd8631a23bc7826bef5d871bdb87378c95647828"
 
-<<<<<<< Updated upstream
-section-iterator@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/section-iterator/-/section-iterator-2.0.0.tgz#bf444d7afeeb94ad43c39ad2fb26151627ccba2a"
-
 "semver@2 || 3 || 4 || 5", semver@^5.1.0, semver@^5.3.0:
-=======
-"semver@2 || 3 || 4 || 5", semver@^5.1.0, semver@^5.3.0, semver@~5.3.0:
->>>>>>> Stashed changes
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
 

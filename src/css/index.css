@@ -135,3 +135,29 @@ body {
   padding-right: 30px;
   padding-left: 30px;
 }
+.padding-sm {
+  padding: 5px;
+}
+.padding-md {
+  padding: 10px;
+}
+.padding-lg {
+  padding: 15px;
+}
+.margin-sm {
+  margin: 5px;
+}
+.margin-md {
+  margin: 10px;
+}
+.margin-lg {
+  margin: 15px;
+}
+.padding-md-v {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.padding-md-h {
+  padding-right: 30px;
+  padding-left: 30px;
+}
