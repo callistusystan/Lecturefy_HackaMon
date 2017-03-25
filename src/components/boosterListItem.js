@@ -21,19 +21,23 @@ class BoosterListItem extends Component {
 	}
 
 	onStartClick() {
-
+		const {name} = this.state;
+		if (name === "Hackamon Poll") {
+			// emit hackamon poll start event
+		}
 	}
 
 	onStopClick() {
-
+		const {name} = this.state;
+		if (name === "Hackamon Poll") {
+			// emit hackamon poll stop event
+		}
 	}
 
 	renderBooster() {
 		if (this.state.expanded) {
 			const jumbotronStyle = { marginBottom: '0px', padding: '10px 0px' };
 			const buttonPadStyle = { marginRight: '10px' };
-
-			const { name } = this.state;
 
 			return (
 				<Jumbotron style={jumbotronStyle}>
@@ -47,8 +51,7 @@ class BoosterListItem extends Component {
 
 	renderSpecificBooster() {
 		const {name} = this.state;
-		const noPaddingTopStyle = {};
-		if (name == "Hackamon Poll") {
+		if (name === "Hackamon Poll") {
 			const { yes, definitelyYes } = this.state;
 			return (
 				<div>
@@ -57,13 +60,13 @@ class BoosterListItem extends Component {
 				<p>Definitely Yes: {definitelyYes}</p>
 				</div>
 			);
-		} else if (name == "Chat") {
+		} else if (name === "Chat") {
 			return (
 				<div>
 					<p>Enables chatting</p>
 				</div>
 			);
-		} else if (name == "Poll") {
+		} else if (name === "Poll") {
 			return (
 				<div>
 					<p>Create a poll and ask everyone!</p>

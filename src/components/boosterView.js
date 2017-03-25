@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
-import {Glyphicon} from 'react-bootstrap';
 
 import SearchBar from './searchBar';
 import BoosterListItem from './boosterListItem';
@@ -31,7 +30,7 @@ class BoosterView extends Component {
         );
     }));
   }
-  
+
   onBoosterChange(event){
       let name = event.target.value;
       let icon = "";
