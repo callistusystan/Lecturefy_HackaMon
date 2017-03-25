@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 class AuthcatePage extends React.Component {
     constructor(props) {
         super(props);
