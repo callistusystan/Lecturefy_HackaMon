@@ -1,43 +1,96 @@
 import React, { Component } from 'react';
-import { Button, Modal, Jumbotron, Grid, Row, Col } from 'react-bootstrap';
+import { Button, Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 
 import SlideView from './slideView';
 import BoosterView from './boosterView';
 import SocketIO from 'socket.io-client';
 const containerStyle = { margin: '0% 5%', height: '100%', minHeight: '100%' };
 
+function findAnswer(searched_id, question) {
+    let selected_answer = null;
+    question.answers.some((answer)=>{
+        let found_answer = answer.id == searched_id;
+        if(found_answer) {
+            selected_answer = answer;
+        }
+        return found_answer;
+    });
+    return selected_answer;
+}
+
 class Presentation extends Component {
   constructor(props) {
     super(props);
     this.socket = SocketIO('http://118.138.41.192:1337');
+
+    let question = {
+        id: 0,
+        description: "Do you think Pineapple Bae should win Hackamon?",
+        answers: [
+            {id: 1, description: "Yes!!", poll_count: 0, background_color: "#3272b7"},
+            {id: 2, description: "Definitely Yes!!!", poll_count: 0, background_color: "#5cb85c"}
+        ]
+    };
+    this.username = this.props.location.query.username;
     this.state = {
       isPresenter: false,
-      hasEvent: true
+      hasEvent: false,
+      question: question
     };
+
+    this.socket.on('answer_update', (partial_answer_data)=> {
+        this.onAnswerUpdate(partial_answer_data);
+    });
+
+    const parent = this;
+    this.socket.on('show_question', (question) => {
+      if (!parent.state.isPresenter) {
+        parent.setState({
+          hasEvent: true
+        });
+      }
+    });
   }
 
   renderPollView() {
+    const parent = this;
     return (
       <Col xs={4} md={4}>
         <Jumbotron>
-          <h2>Do you think Pineapple Bae should win Hackamon?</h2>
-          <Button onClick={this.onYesClick.bind(this)} style={{width: '200px'}} bsStyle='primary' bsSize="large">Yes!!!</Button>
-          <br />
-          <Button onClick={this.onDefinitelyYesClick.bind(this)} style={{marginTop: '10px', width: '200px'}} bsStyle='success' bsSize="large">Definitely Yes!!!</Button>
+          <h2>{this.state.question.description}</h2>
+          <form className="form-group">
+          {this.state.question.answers.map((answer)=> {
+            return (
+              <Button
+                key={answer.id}
+                onClick={parent.onPollButtonAnswerClick.bind(parent, answer)}
+                bsStyle="success"
+                style={{marginTop: '10px', width: '200px', backgroundColor: answer.background_color}}>
+                {answer.description}
+              </Button>
+            );
+          })}
+          </form>
         </Jumbotron>
       </Col>
     );
   }
 
-  onYesClick() {
-    // emit yes clicked
-    this.setState({
-      hasEvent: false
-    });
+  onAnswerUpdate(partial_answer_data) {
+      console.log(partial_answer_data);
+      let selected_answer = findAnswer(partial_answer_data.answer.id, this.state.question);
+      if(selected_answer == null) {
+          console.log(`Answer with id ${partial_answer_data.answer.id} was null`);
+          return;
+      }
+      selected_answer.poll_count = partial_answer_data.answer.poll_count;
+      this.setState({
+        question: this.state.question
+      });
   }
-
-  onDefinitelyYesClick() {
-    // emit definitely yes clicked
+  onPollButtonAnswerClick(item, event) {
+    this.socket.emit('answer_question', {username: this.username, question_id: this.state.question.id, answer_id: item.id});
+    // TODO: MAYBE do this after we are told that the answer was succesfully posted???
     this.setState({
       hasEvent: false
     });
@@ -94,7 +147,7 @@ class Presentation extends Component {
   renderBoosterView() {
     if (this.state.isPresenter) {
       return (
-        <Col xs={4} md={4}><BoosterView /></Col>
+        <Col xs={4} md={4}><BoosterView socket={this.socket} /></Col>
       );
     }
   }

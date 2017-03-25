@@ -24,6 +24,7 @@ class BoosterListItem extends Component {
 		const {name} = this.state;
 		if (name === "Hackamon Poll") {
 			// emit hackamon poll start event
+			this.props.socket.emit('start_question', { id: 0 });
 		}
 	}
 
