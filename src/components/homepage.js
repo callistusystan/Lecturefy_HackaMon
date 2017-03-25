@@ -13,7 +13,7 @@ class HomePage extends Component {
     return (
       <div>
         <Header />
-            <div className="buttonToolbar">
+            <div className="buttonContainer">
                 <Button bsStyle="primary" bsSize="large" className="center-button">Login as Presenter</Button>
                 <Button bsStyle="primary" bsSize="large" className="center-button">Login as Viewer</Button>
             </div>

@@ -18,8 +18,8 @@ body {
   font-size: large;
 }
 
-.buttonToolbar{
-  
+.buttonContainer{
+  margin-top: 30px;
 }
 .center-button{
   width: 20%;
