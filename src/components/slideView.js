@@ -12,6 +12,7 @@ class SlideView extends Component {
 		this.props.socket.on('onPresenterSlideIndexChanged', (slide_information) => {
 			this.onPresenterSlideIndexChanged(slide_information);
 		});
+		this.props.socket.emit('get_slide_index', null);
 	}
 
 	onSlideChanged(slide_index, isPresenter) {
