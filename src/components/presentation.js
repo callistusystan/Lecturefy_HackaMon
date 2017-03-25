@@ -64,8 +64,7 @@ class Presentation extends Component {
   renderPollView() {
     const parent = this;
     return (
-      <Col xs={4} md={4}>
-        <Jumbotron>
+        <div >
           <h2>{this.state.question.description}</h2>
           <form className="form-group">
           {this.state.question.answers.map((answer)=> {
@@ -80,8 +79,7 @@ class Presentation extends Component {
             );
           })}
           </form>
-        </Jumbotron>
-      </Col>
+        </div>
     );
   }
 
@@ -101,9 +99,9 @@ class Presentation extends Component {
   onPollButtonAnswerClick(item, event) {
     this.socket.emit('answer_question', {username: this.username, question_id: this.state.question.id, answer_id: item.id});
     // TODO: MAYBE do this after we are told that the answer was succesfully posted???
-    this.setState({
+    /*this.setState({
       hasEvent: false
-    });
+    });*/
   }
 
   componentWillMount() {
@@ -125,9 +123,9 @@ class Presentation extends Component {
     return (
       <Grid fluid={true} style={containerStyle}>
         <Row>
-          <Col xs={7} md={7}><SlideView socket={this.socket} isPresenter={this.state.isPresenter} /></Col>
-          <Col xs={1} md={1} />
-          {this.renderBoosterView()}
+          <Col xs={6} sm={6} md={8}><div className="padding-md card-3"><SlideView socket={this.socket} isPresenter={this.state.isPresenter} /></div></Col>
+          <Col xs={0} md={0} md={0} />
+          <Col xs={6} sm={6} md={4}>{this.renderBoosterView()}</Col>
         </Row>
       </Grid>
     );
@@ -138,9 +136,13 @@ class Presentation extends Component {
       return (
         <Grid fluid={true} style={containerStyle}>
           <Row>
-            <Col xs={7} md={7}><SlideView socket={this.socket} isPresenter={this.state.isPresenter} /></Col>
-            <Col xs={1} md={1} />
-            {this.renderPollView()}
+            <Col xs={6} sm={6} md={8}>
+                <div className="card-3">
+                    <SlideView socket={this.socket} isPresenter={this.state.isPresenter} />
+                </div>
+            </Col>
+            <Col xs={0} sm={0} md={0}/>
+              <Col xs={6} sm={6} md={4}><div className="padding-md card-3">{this.renderPollView()}</div></Col>
           </Row>
         </Grid>
       );
@@ -148,7 +150,11 @@ class Presentation extends Component {
     return (
       <Grid fluid={true} style={containerStyle}>
         <Row>
-          <Col style={{float: 'none', margin: '0 auto'}} xs={7} md={7}><SlideView socket={this.socket} isPresenter={this.state.isPresenter} /></Col>
+          <Col style={{float: 'none', margin: '0 auto'}} xs={12} sm={10} md={8} lg={8} xl={8}>
+              <div className="card-3">
+                  <SlideView  socket={this.socket} isPresenter={this.state.isPresenter} />
+              </div>
+          </Col>
         </Row>
       </Grid>
     );
@@ -157,16 +163,16 @@ class Presentation extends Component {
   renderBoosterView() {
     if (this.state.isPresenter) {
       return (
-        <Col xs={4} md={4}><BoosterView question={this.state.question} socket={this.socket} /></Col>
+        <BoosterView question={this.state.question} socket={this.socket} />
       );
     }
   }
 
   render() {
     return (
-      <Jumbotron style={{height:window.innerHeight}}>
+      <div className="main-container" style={{height:window.innerHeight}}>
         {this.renderSlideView()}
-      </Jumbotron>
+      </div>
     );
   }
 }
