@@ -7,9 +7,10 @@ class Presentation extends Component {
 
   render() {
     return (
-      <p>
-        Hello World
-      </p>
+      <div class="container-fluid">
+        <nav class="navbar navbar-inverse">
+        </nav>
+      </div>
     );
   }
 }

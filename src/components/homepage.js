@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ButtonToolbar, Button } from 'react-bootstrap';
 
 class HomePage extends Component {
   constructor(props) {
@@ -7,10 +8,10 @@ class HomePage extends Component {
 
   render() {
     return (
-      <div>
-        <button type="button" class="btn btn-default">Login as Presenter</button>
-        <button type="button" class="btn btn-default">Login as Viewer</button>
-      </div>
+      <ButtonToolbar>
+        <Button bsStyle="primary">Login as Presenter</Button>
+        <Button bsStyle="primary">Login as Viewer</Button>
+      </ButtonToolbar>
     );
   }
 }
