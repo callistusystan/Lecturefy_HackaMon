@@ -4,15 +4,14 @@ import { Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 import SlideView from './slideView';
 import BoosterView from './boosterView';
 
-const containerStyle = { margin: '0 5%'};
-const maxHeightStyle = { height: '100%', minHeight: '100%' };
+const containerStyle = { margin: '0% 5%', height: '100%', minHeight: '100%' };
 
 class Presentation extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      isPresenter: false //(this.props.params.username.equals("lketchup") === true) ? true : false
+      isPresenter: true //(this.props.params.username.equals("lketchup") === true) ? true : false
     };
   }
 
@@ -21,8 +20,8 @@ class Presentation extends Component {
       <Grid fluid={true} style={containerStyle}>
         <Row>
           <Col xs={6} md={6}><SlideView /></Col>
-          <Col xs={2} md={2} />
-          <Col xs={4} md={4}><BoosterView /></Col>
+          <Col xs={2} md={1} />
+          <Col xs={4} md={5}><BoosterView /></Col>
         </Row>
       </Grid>
     );
@@ -31,7 +30,7 @@ class Presentation extends Component {
   renderViewerView() {
     return (
       <Grid fluid={true} style={containerStyle}>
-        <SlideView style={maxHeightStyle} />
+        <SlideView  />
       </Grid>
     );
   }
