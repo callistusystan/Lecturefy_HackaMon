@@ -10,16 +10,17 @@ class SlideView extends Component {
 			images: ["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg","images/5.jpg","images/6.jpg","images/7.jpg"]
 		};
 		this.props.socket.on('onPresenterSlideIndexChanged', (slide_information) => {
-			this.onPresenterSlideIndexChanged(slide_information.slide_index);
+			this.onPresenterSlideIndexChanged(slide_information);
 		});
 	}
 
 	onSlideChanged(slide_index, isPresenter) {
 		console.log(slide_index, isPresenter);
-		this.socket.emit('onSlideIndexChanged', {slide_index: slide_index, is_presenter: isPresenter});
+		this.props.socket.emit('onSlideIndexChanged', {slide_index: slide_index, is_presenter: isPresenter});
 	}
 
 	onPresenterSlideIndexChanged(partial_slide_information) {
+		console.log(partial_slide_information);
 			this.setState({
 				curIndex: partial_slide_information.slide_index
 			});
