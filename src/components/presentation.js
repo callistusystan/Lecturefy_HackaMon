@@ -69,6 +69,7 @@ class Presentation extends Component {
           <form className="form-group">
           {this.state.question.answers.map((answer)=> {
             return (
+              <div>
               <Button
                 key={answer.id}
                 onClick={parent.onPollButtonAnswerClick.bind(parent, answer)}
@@ -76,6 +77,8 @@ class Presentation extends Component {
                 style={{marginTop: '10px', width: '200px', backgroundColor: answer.background_color}}>
                 {answer.description}
               </Button>
+              <br />
+              </div>
             );
           })}
           </form>
@@ -142,13 +145,13 @@ class Presentation extends Component {
                 </div>
             </Col>
             <Col xs={0} sm={0} md={0}/>
-              <Col xs={12} sm={6} md={4}><div className="padding-md card-3">{this.renderPollView()}</div></Col>
+              <Col xs={12} sm={6} md={4}><div id="pollPopup" className="padding-md card-3">{this.renderPollView()}</div></Col>
           </Row>
         </Grid>
       );
     }
     return (
-      <Grid fluid={true} style={containerStyle}>
+      <Grid fluid={true} classID="mainContainer" style={containerStyle}>
         <Row>
           <Col style={{float: 'none', margin: '0 auto'}} xs={12} sm={10} md={8} lg={8}>
               <div className="card-3">
