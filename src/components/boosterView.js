@@ -5,6 +5,8 @@ import SearchBar from './searchBar';
 
 const noPaddingStyle={padding: 0};
 
+const validBoosters = ["Chat", "Poll"];
+
 class BoosterView extends Component {
   constructor(props) {
     super(props);
@@ -33,9 +35,10 @@ class BoosterView extends Component {
 
   addBooster() {
     const { booster, boosters } = this.state;
-    if (boosters.indexOf(booster) === -1 ) {
-      let newBoosters = boosters.splice();
+    if (validBoosters.indexOf(booster) >= 0 && boosters.indexOf(booster) === -1 ) {
+      let newBoosters = boosters.slice();
       newBoosters.push(booster);
+      console.log(newBoosters);
       this.setState({
         boosters: newBoosters
       });
@@ -65,7 +68,7 @@ class BoosterView extends Component {
     return (
       <div>
         <Row >
-          <Col xs={10} md={10} style={noPaddingStyle} onChange={this.onBoosterChange.bind(this)}><SearchBar /></Col>
+          <Col xs={10} md={10} style={noPaddingStyle}  onChange={this.onBoosterChange.bind(this)}><SearchBar /></Col>
           <Col xs={2} md={2} style={noPaddingStyle}><Button onClick={this.addBooster.bind(this)}>Add booster</Button></Col>
         </Row>
 
