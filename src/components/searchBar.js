@@ -2,7 +2,7 @@ import React from 'react';
 import Autosuggest from 'react-autosuggest';
 import {Glyphicon} from 'react-bootstrap';
 
-const languages = [
+const boosters = [
   {
       icon: 'comment',
       name: 'Chat'
@@ -31,7 +31,7 @@ function getSuggestions(value) {
 
   const regex = new RegExp('^' + escapedValue, 'i');
 
-  return languages.filter(language => regex.test(language.name));
+  return boosters.filter(language => regex.test(language.name));
 }
 
 function getSuggestionValue(suggestion) {
@@ -54,6 +54,9 @@ class SearchBar extends React.Component {
     };
   }
 
+  clearBar = () => {
+      this.state.value = '';
+  };
   onChange = (event, { newValue, method }) => {
     this.setState({
       value: newValue
@@ -72,6 +75,11 @@ class SearchBar extends React.Component {
     });
   };
 
+  onSelectionClick = (event, data) => {
+      console.log();
+      this.props.onSuggestionSelected(event, this.state.suggestions[data.suggestionIndex]);
+  };
+
   render() {
     const { value, suggestions } = this.state;
     const inputProps = {
@@ -87,6 +95,7 @@ class SearchBar extends React.Component {
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
+        onSuggestionSelected={this.onSelectionClick}
         inputProps={inputProps} />
     );
   }
