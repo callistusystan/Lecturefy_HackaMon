@@ -83,7 +83,7 @@ class BoosterListItem extends Component {
 		return (
 			<div>
 				<h4 onClick={this.toggleExpand.bind(this)}>
-					{this.props.children} {`\u00bb`}
+					{this.props.children}
 				</h4>
 				{this.renderBooster()}
 			</div>

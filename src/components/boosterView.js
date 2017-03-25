@@ -32,9 +32,7 @@ class BoosterView extends Component {
         );
     }));
   }
-    getIconFromName(name) {
-      return this.state
-    }
+  
   onBoosterChange(event){
       let name = event.target.value;
       let icon = "";
@@ -46,8 +44,8 @@ class BoosterView extends Component {
       this.setState({booster:{icon:data.icon, name:data.name}});
   }
   addBooster() {
-    const { booster, boosters } = this.state;
-      if (validBoosters.indexOf(booster.name) >= 0 && boosters.indexOf(booster.name) === -1 ) {
+    const { booster, boosters} = this.state;
+      if (validBoosters.indexOf(booster.name) >= 0 && boosters.indexOf(booster) === -1 ) {
           let newBoosters = boosters.slice();
           newBoosters.push(booster);
           console.log(newBoosters);
