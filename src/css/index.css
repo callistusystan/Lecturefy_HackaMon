@@ -18,6 +18,17 @@ body {
   font-size: large;
 }
 
+.buttonToolbar{
+  
+}
+.center-button{
+  width: 20%;
+  margin-left: 40%;
+  margin-right: 40%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

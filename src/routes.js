@@ -10,7 +10,7 @@ import Header from './components/header';
 export default (
     <Route path="/" >
         <IndexRoute component={HomePage} />
-        <Route path="presentation" component={Header}>
+  n      <Route path="presentation" component={Header}>
           <IndexRoute component={Presentation} />
         </Route>
         <Route path="login" component={AuthcatePage}/>

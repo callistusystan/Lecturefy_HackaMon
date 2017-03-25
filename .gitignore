@@ -23,6 +23,7 @@ yarn-error.log*
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/dictionaries
+.idea/workspace.xml
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
@@ -32,6 +33,7 @@ yarn-error.log*
 .idea/**/sqlDataSources.xml
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
+
 
 # Gradle:
 .idea/**/gradle.xml
