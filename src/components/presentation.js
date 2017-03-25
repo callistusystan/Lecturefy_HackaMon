@@ -142,7 +142,7 @@ class Presentation extends Component {
                 </div>
             </Col>
             <Col xs={0} sm={0} md={0}/>
-              <Col xs={12} sm={6} md={4}><div className="padding-md card-3" style="">{this.renderPollView()}</div></Col>
+              <Col xs={12} sm={6} md={4}><div className="padding-md card-3">{this.renderPollView()}</div></Col>
           </Row>
         </Grid>
       );

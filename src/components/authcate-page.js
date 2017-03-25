@@ -36,10 +36,10 @@ class AuthcatePage extends React.Component {
                             <p className="padding-md-v">Sign in with your Monash email address</p>
                             <form className="form-group">
                                 <div className="input-group w-match-parent input-authcate">
-                                    <input type="text" className="form-control" placeholder="Username" onChange={parent.onUsernameChange}/>
+                                    <input type="text" className="form-control" placeholder="Username (whatever you want)" onChange={parent.onUsernameChange}/>
                                 </div>
                                 <div className="input-group w-match-parent">
-                                    <input type="text" className="form-control" placeholder="Password" onChange={parent.onPasswordChange}/>
+                                    <input type="password" className="form-control" placeholder="Password" onChange={parent.onPasswordChange}/>
                                 </div>
                                 <Link to={{pathname:"/presentation",  query:{username: parent.state.username}}}>
                                     <button type="button" className="btn bt-lg btn-sign-up">Sign in</button>
