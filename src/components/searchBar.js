@@ -1,62 +1,15 @@
 import React, { Component } from 'react';
 import Autosuggest from 'react-autosuggest';
+import {Glyphicon} from 'react-bootstrap';
 
 const languages = [
   {
-    name: 'C',
-    year: 1972
+      icon: 'comment',
+      name: 'Chat'
   },
   {
-    name: 'C#',
-    year: 2000
-  },
-  {
-    name: 'C++',
-    year: 1983
-  },
-  {
-    name: 'Clojure',
-    year: 2007
-  },
-  {
-    name: 'Elm',
-    year: 2012
-  },
-  {
-    name: 'Go',
-    year: 2009
-  },
-  {
-    name: 'Haskell',
-    year: 1990
-  },
-  {
-    name: 'Java',
-    year: 1995
-  },
-  {
-    name: 'Javascript',
-    year: 1995
-  },
-  {
-    name: 'Perl',
-    year: 1987
-  },
-  {
-    name: 'PHP',
-    year: 1995
-  },
-  {
-    name: 'Python',
-    year: 1991
-  },
-  {
-    name: 'Ruby',
-    year: 1995
-  },
-  {
-    name: 'Scala',
-    year: 2003
+      icon: 'stats',
+      name: 'Poll'
   }
 ];
 
@@ -83,7 +36,7 @@ function getSuggestionValue(suggestion) {
 
 function renderSuggestion(suggestion) {
   return (
-    <span>{suggestion.name}</span>
+    <span className="searchItem"> <Glyphicon glyph={suggestion.icon}/> {suggestion.name}</span>
   );
 }
 
@@ -118,7 +71,7 @@ class SearchBar extends React.Component {
   render() {
     const { value, suggestions } = this.state;
     const inputProps = {
-      placeholder: "Type 'c'",
+      placeholder: "Search Boosters...",
       value,
       onChange: this.onChange
     };

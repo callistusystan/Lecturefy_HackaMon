@@ -1,22 +1,50 @@
-import React from 'react';
-import { Carousel } from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Pager, Image } from 'react-bootstrap';
 
-const images = ["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg","images/5.jpg","images/6.jpg","images/7.jpg"];
+class SlideView extends Component {
+	constructor(props) {
+		super(props);
 
-const renderCarouselImages = () => {
-	return images.map((image) => {
+		this.state = {
+			currentImage: 0,
+			images: ["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg","images/5.jpg","images/6.jpg","images/7.jpg"]
+		};
+	}
+
+	prevOnClick() {
+		let { currentImage, images } = this.state;
+		const maxSize = images.length;
+
+		if (currentImage > 0) {
+			this.setState({
+				currentImage: currentImage-1
+			});
+		}
+	}
+
+	nextOnClick() {
+		let { currentImage, images } = this.state;
+		const maxSize = images.length;
+
+		if (currentImage < images.length-1) {
+			this.setState({
+				currentImage: currentImage+1
+			});
+		}
+	}
+
+	render() {
+		const { images, currentImage } = this.state;
 		return (
-			<Carousel.Item key={image}>
-				<img alt="900x500" src={image} />
-			</Carousel.Item>
-		);
-	});
+			<div>
+	    	<Image src={images[currentImage]} responsive />
+				<Pager>
+					<Pager.Item previous onClick={this.prevOnClick.bind(this)}>&larr; Previous Slide</Pager.Item>
+					<Pager.Item next onClick={this.nextOnClick.bind(this)}>Next Slide &rarr;</Pager.Item>
+				</Pager>
+			</div>
+	  );
+	}
 };
 
-export default (props) => {
-	return (
-    <Carousel>
-			{renderCarouselImages()}
-		</Carousel>
-  );
-};
+export default SlideView;
