@@ -51,7 +51,6 @@ class Presentation extends Component {
         });
       }
     });
-
     this.socket.on('hide_question', (question) => {
       if (!parent.state.isPresenter) {
         parent.setState({
@@ -59,6 +58,7 @@ class Presentation extends Component {
         });
       }
     });
+    this.socket.emit('get_question', this.state.question.id);
   }
 
   renderPollView() {
@@ -150,7 +150,7 @@ class Presentation extends Component {
     return (
       <Grid fluid={true} style={containerStyle}>
         <Row>
-          <Col style={{float: 'none', margin: '0 auto'}} xs={12} sm={10} md={8} lg={8} xl={8}>
+          <Col style={{float: 'none', margin: '0 auto'}} xs={12} sm={10} md={8} lg={8}>
               <div className="card-3">
                   <SlideView  socket={this.socket} isPresenter={this.state.isPresenter} />
               </div>

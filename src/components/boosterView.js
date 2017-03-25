@@ -77,12 +77,12 @@ class BoosterView extends Component {
             <div className="container-fluid card-3">
                 <div className="padding-md">
                     <Row>
-                        <Col xl={4} sm={6} md={7} style={noPaddingStyle} onChange={this.onBoosterChange.bind(this)}>
+                        <Col xs={4} sm={6} md={7} style={noPaddingStyle} onChange={this.onBoosterChange.bind(this)}>
                             <div style={{marginRight:10}}>
                             <SearchBar  onSuggestionSelected={this.onSearchSuggestionClicked.bind(this)}/>
                             </div>
                         </Col>
-                        <Col xl={8} sm={6} md={5} style={noPaddingStyle}>
+                        <Col xs={8} sm={6} md={5} style={noPaddingStyle}>
                             <Button className="w-match-parent" onClick={this.addBooster.bind(this)}>Add booster</Button>
                         </Col>
                     </Row>
