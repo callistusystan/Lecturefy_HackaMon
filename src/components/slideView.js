@@ -7,7 +7,7 @@ const renderCarouselImages = () => {
 	return images.map((image) => {
 		return (
 			<Carousel.Item>
-
+				<img alt="900x500" src={image} />
 			</Carousel.Item>
 		);
 	});
@@ -16,7 +16,7 @@ const renderCarouselImages = () => {
 export default (props) => {
 	return (
     <Carousel>
-
+			{renderCarouselImages()}
 		</Carousel>
   );
 };
