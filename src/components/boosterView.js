@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
-import Header from './header';
-
+import SearchBar from './searchBar';
 const boosters = ["Chat Booster", "Poll Booster"];
 
 class BoosterView extends Component {
@@ -14,7 +13,8 @@ class BoosterView extends Component {
     const headerStyle = {marginTop: '0'};
     return (
       <div>
-        <h2 styles={headerStyle}>Current boosters</h2>
+        <SearchBar />
+        <h2>Current boosters</h2>
 
         <ListGroup>
           <ListGroupItem>Chat booster</ListGroupItem>

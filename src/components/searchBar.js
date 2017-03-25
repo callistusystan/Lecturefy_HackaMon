@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 import Autosuggest from 'react-autosuggest';
 
 // Imagine you have a list of languages that you'd like to autosuggest.
@@ -34,9 +35,9 @@ const renderSuggestion = suggestion => (
   </div>
 );
 
-class Example extends React.Component {
-  constructor() {
-    super();
+class Example extends Component {
+  constructor(props) {
+    super(props);
 
     // Autosuggest is a controlled component.
     // This means that you need to provide an input value
@@ -93,3 +94,5 @@ class Example extends React.Component {
     );
   }
 }
+
+export default Example;
