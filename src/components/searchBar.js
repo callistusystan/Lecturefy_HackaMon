@@ -1,71 +1,115 @@
 import React, { Component } from 'react';
 import Autosuggest from 'react-autosuggest';
 
-// Imagine you have a list of languages that you'd like to autosuggest.
 const languages = [
   {
     name: 'C',
     year: 1972
   },
   {
+    name: 'C#',
+    year: 2000
+  },
+  {
+    name: 'C++',
+    year: 1983
+  },
+  {
+    name: 'Clojure',
+    year: 2007
+  },
+  {
     name: 'Elm',
     year: 2012
+  },
+  {
+    name: 'Go',
+    year: 2009
+  },
+  {
+    name: 'Haskell',
+    year: 1990
+  },
+  {
+    name: 'Java',
+    year: 1995
+  },
+  {
+    name: 'Javascript',
+    year: 1995
+  },
+  {
+    name: 'Perl',
+    year: 1987
+  },
+  {
+    name: 'PHP',
+    year: 1995
+  },
+  {
+    name: 'Python',
+    year: 1991
+  },
+  {
+    name: 'Ruby',
+    year: 1995
+  },
+  {
+    name: 'Scala',
+    year: 2003
   }
 ];
 
-// Teach Autosuggest how to calculate suggestions for any given input value.
-const getSuggestions = value => {
-  const inputValue = value.trim().toLowerCase();
-  const inputLength = inputValue.length;
+// https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
+function escapeRegexCharacters(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
-  return inputLength === 0 ? [] : languages.filter(lang =>
-    lang.name.toLowerCase().slice(0, inputLength) === inputValue
+function getSuggestions(value) {
+  const escapedValue = escapeRegexCharacters(value.trim());
+
+  if (escapedValue === '') {
+    return [];
+  }
+
+  const regex = new RegExp('^' + escapedValue, 'i');
+
+  return languages.filter(language => regex.test(language.name));
+}
+
+function getSuggestionValue(suggestion) {
+  return suggestion.name;
+}
+
+function renderSuggestion(suggestion) {
+  return (
+    <span>{suggestion.name}</span>
   );
-};
+}
 
-// When suggestion is clicked, Autosuggest needs to populate the input element
-// based on the clicked suggestion. Teach Autosuggest how to calculate the
-// input value for every given suggestion.
-const getSuggestionValue = suggestion => suggestion.name;
-
-// Use your imagination to render suggestions.
-const renderSuggestion = suggestion => (
-  <div>
-    {suggestion.name}
-  </div>
-);
-
-class Example extends Component {
+class SearchBar extends React.Component {
   constructor(props) {
     super(props);
 
-    // Autosuggest is a controlled component.
-    // This means that you need to provide an input value
-    // and an onChange handler that updates this value (see below).
-    // Suggestions also need to be provided to the Autosuggest,
-    // and they are initially empty because the Autosuggest is closed.
     this.state = {
       value: '',
       suggestions: []
     };
   }
 
-  onChange(event, { newValue }) {
+  onChange = (event, { newValue, method }) => {
     this.setState({
       value: newValue
     });
   };
 
-  // Autosuggest will call this function every time you need to update suggestions.
-  // You already implemented this logic above, so just use it.
-  onSuggestionsFetchRequested({ value }){
+  onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
       suggestions: getSuggestions(value)
     });
   };
 
-  // Autosuggest will call this function every time you need to clear suggestions.
-  onSuggestionsClearRequested() {
+  onSuggestionsClearRequested = () => {
     this.setState({
       suggestions: []
     });
@@ -73,15 +117,12 @@ class Example extends Component {
 
   render() {
     const { value, suggestions } = this.state;
-
-    // Autosuggest will pass through all these props to the input element.
     const inputProps = {
-      placeholder: 'Type a programming language',
+      placeholder: "Type 'c'",
       value,
       onChange: this.onChange
     };
 
-    // Finally, render it!
     return (
       <Autosuggest
         suggestions={suggestions}
@@ -89,10 +130,9 @@ class Example extends Component {
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
-        inputProps={inputProps}
-      />
+        inputProps={inputProps} />
     );
   }
 }
 
-export default Example;
+export default SearchBar;
