@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
-import {Glyphicon} from 'react-bootstrap';
 
 import SearchBar from './searchBar';
 import BoosterListItem from './boosterListItem';
@@ -24,14 +23,14 @@ class BoosterView extends Component {
 
     return (boosters.map(booster => {
       return (
-        <ListGroupItem key={booster}><Glyphicon glyph={booster.icon}/>{booster.name}</ListGroupItem>
+        <ListGroupItem key={booster.name}>
+          <BoosterListItem icon={booster.icon}>{booster.name}</BoosterListItem>
+        </ListGroupItem>
 
         );
     }));
   }
-    getIconFromName(name) {
-      return this.state
-    }
+
   onBoosterChange(event){
       let name = event.target.value;
       let icon = "";
@@ -43,8 +42,8 @@ class BoosterView extends Component {
       this.setState({booster:{icon:data.icon, name:data.name}});
   }
   addBooster() {
-    const { booster, boosters } = this.state;
-      if (validBoosters.indexOf(booster.name) >= 0 && boosters.indexOf(booster.name) === -1 ) {
+    const { booster, boosters} = this.state;
+      if (validBoosters.indexOf(booster.name) >= 0 && boosters.indexOf(booster) === -1 ) {
           let newBoosters = boosters.slice();
           newBoosters.push(booster);
           console.log(newBoosters);

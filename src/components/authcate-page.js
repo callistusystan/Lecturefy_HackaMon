@@ -23,7 +23,7 @@ class AuthcatePage extends React.Component {
     render() {
         const parent = this;
         return (
-            <div className="container-fluid authcate-container h-match-parent">
+            <div className="authcate-container">
                 <div className="row h-match-parent">
                     <section className="col-md-7 col-sm-6 col-xs-0 authcate-side-hero">
                         <div className="row">
