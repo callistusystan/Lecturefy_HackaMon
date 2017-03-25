@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ButtonGroup,ButtonToolbar, Button, Jumbotron } from 'react-bootstrap';
+import { Button} from 'react-bootstrap';
 
 import Header from './header';
 

@@ -12,8 +12,7 @@ class SlideView extends Component {
 	}
 
 	prevOnClick() {
-		let { currentImage, images } = this.state;
-		const maxSize = images.length;
+		let { currentImage } = this.state;
 
 		if (currentImage > 0) {
 			this.setState({
@@ -26,7 +25,7 @@ class SlideView extends Component {
 		let { currentImage, images } = this.state;
 		const maxSize = images.length;
 
-		if (currentImage < images.length-1) {
+		if (currentImage < maxSize-1) {
 			this.setState({
 				currentImage: currentImage+1
 			});
