@@ -32,15 +32,29 @@ class SlideView extends Component {
 		}
 	}
 
-	render() {
+	renderSlide() {
 		const { images, currentImage } = this.state;
 		return (
-			<div>
-	    	<Image src={images[currentImage]} responsive />
+    	<Image src={images[currentImage]} responsive />
+		);
+	}
+
+	renderNavButtons() {
+		if (this.props.isPresenter) {
+			return (
 				<Pager>
 					<Pager.Item previous onClick={this.prevOnClick.bind(this)}>&larr; Previous Slide</Pager.Item>
 					<Pager.Item next onClick={this.nextOnClick.bind(this)}>Next Slide &rarr;</Pager.Item>
 				</Pager>
+			);
+		}
+	}
+
+	render() {
+		return (
+			<div>
+				{this.renderSlide()}
+				{this.renderNavButtons()}
 			</div>
 	  );
 	}
