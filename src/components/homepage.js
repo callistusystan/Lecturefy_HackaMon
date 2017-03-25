@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ButtonToolbar, Button } from 'react-bootstrap';
+import { ButtonToolbar, Button, Jumbotron } from 'react-bootstrap';
 
 import Header from './header';
 
@@ -9,17 +9,17 @@ class HomePage extends Component {
   }
 
   render() {
-    const containerStyle = {margin: '10px auto 10px'};
+    const containerStyle = {margin: 'auto'};
     return (
       <div>
         <Header />
 
-        <div className="container-fluid" style={containerStyle}>
-          <ButtonToolbar>
+        <Jumbotron style={containerStyle}>
+
             <Button bsStyle="primary">Login as Presenter</Button>
             <Button bsStyle="primary">Login as Viewer</Button>
-          </ButtonToolbar>
-        </div>
+
+        </Jumbotron>
       </div>
     );
   }

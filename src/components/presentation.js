@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 
 class Presentation extends Component {
   constructor(props) {
@@ -7,10 +8,14 @@ class Presentation extends Component {
 
   render() {
     return (
-      <div class="container-fluid">
-        <nav class="navbar navbar-inverse">
-        </nav>
-      </div>
+      <Jumbotron>
+        <Grid>
+          <Row>
+            <Col xs={6} md={6}>something</Col>
+            <Col xs={6} md={6}>something else</Col>
+          </Row>
+        </Grid>
+      </Jumbotron>
     );
   }
 }
