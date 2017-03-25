@@ -55,8 +55,11 @@ class SearchBar extends React.Component {
   }
 
   clearBar = () => {
-      this.state.value = '';
+      this.setState({
+          value: ''
+      });
   };
+
   onChange = (event, { newValue, method }) => {
     this.setState({
       value: newValue

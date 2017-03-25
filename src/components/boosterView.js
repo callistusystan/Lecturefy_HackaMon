@@ -12,7 +12,6 @@ const validBoosters = ["Chat", "Poll", "Hackamon Poll"];
 class BoosterView extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       boosters: [],
       booster: {icon:"",
@@ -45,11 +44,11 @@ class BoosterView extends Component {
   }
   addBooster() {
     const { booster, boosters } = this.state;
-    if (validBoosters.indexOf(booster) >= 0 && boosters.indexOf(booster.name) === -1 ) {
-      let newBoosters = boosters.slice();
-      newBoosters.push(booster);
-      console.log(newBoosters);
-      this.setState({
+      if (validBoosters.indexOf(booster.name) >= 0 && boosters.indexOf(booster.name) === -1 ) {
+          let newBoosters = boosters.slice();
+          newBoosters.push(booster);
+          console.log(newBoosters);
+          this.setState({
         boosters: newBoosters
       });
     }
