@@ -92,6 +92,9 @@ body {
     background-color: #ddd;
 }
 
+.searchItem{
+    float: inherit;
+}
 
 @keyframes App-logo-spin {
     from { transform: rotate(0deg); }

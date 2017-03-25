@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import Autosuggest from 'react-autosuggest';
+import {Glyphicon} from 'react-bootstrap';
 
 const languages = [
   {
-    name: 'Chat Booster'
+      icon: 'comment',
+      name: 'Chat'
   },
   {
-    name: 'Poll Booster'
+      icon: 'stats',
+      name: 'Poll'
   }
 ];
 
@@ -33,7 +36,7 @@ function getSuggestionValue(suggestion) {
 
 function renderSuggestion(suggestion) {
   return (
-    <span>{suggestion.name}</span>
+    <span className="searchItem"> <Glyphicon glyph={suggestion.icon}/> {suggestion.name}</span>
   );
 }
 
