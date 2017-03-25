@@ -181,12 +181,12 @@ body {
     }
 
     #pollPopup h2 {
-      font-size: 1.3em;
+      font-size: 1.2em;
     }
 
     #pollPopup button {
-      padding-top: 10px;
-      padding-bottom: 10px;
-      font-size: 1.2em;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      font-size: 1.1em;
     }
 }
