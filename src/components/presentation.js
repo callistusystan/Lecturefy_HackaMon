@@ -1,4 +1,4 @@
-  import React, { Component } from 'react';
+import React, { Component } from 'react';
 import { Button, Modal, Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 
 import SlideView from './slideView';
