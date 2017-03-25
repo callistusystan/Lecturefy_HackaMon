@@ -7,9 +7,10 @@ class HomePage extends Component {
 
   render() {
     return (
-      <p>
-        Hello World
-      </p>
+      <div>
+        <button type="button" class="btn btn-default">Login as Presenter</button>
+        <button type="button" class="btn btn-default">Login as Viewer</button>
+      </div>
     );
   }
 }
