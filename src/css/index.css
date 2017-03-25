@@ -179,4 +179,14 @@ body {
     #pollPopup {
       margin-top: 30px;
     }
+
+    #pollPopup h2 {
+      font-size: 1.3em;
+    }
+
+    #pollPopup button {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 1.2em;
+    }
 }

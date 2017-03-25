@@ -4,7 +4,7 @@ import { Button, Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 import SlideView from './slideView';
 import BoosterView from './boosterView';
 import SocketIO from 'socket.io-client';
-const containerStyle = { margin: '0% 5%', height: '100%', minHeight: '100%' };
+const containerStyle = { margin: '0% 15px', height: '100%', minHeight: '100%' };
 
 function findAnswer(searched_id, question) {
     let selected_answer = null;
@@ -137,7 +137,7 @@ class Presentation extends Component {
   renderViewerView() {
     if (this.state.hasEvent) {
       return (
-        <Grid fluid={true} style={containerStyle}>
+        <Grid fluid={true} style={containerStyle} id="mainContainer" >
           <Row>
             <Col xs={12} sm={6} md={8}>
                 <div className="card-3">
@@ -151,7 +151,7 @@ class Presentation extends Component {
       );
     }
     return (
-      <Grid fluid={true} classID="mainContainer" style={containerStyle}>
+      <Grid fluid={true} style={containerStyle} id="mainContainer" >
         <Row>
           <Col style={{float: 'none', margin: '0 auto'}} xs={12} sm={10} md={8} lg={8}>
               <div className="card-3">
