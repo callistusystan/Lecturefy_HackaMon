@@ -4,29 +4,15 @@ import React from 'react';
 class BarChartCustom extends React.Component {
   constructor(props) {
     super(props);
-    const parent = this;
-    let question = {
-      id: 0,
-      answers: [
-        {id: 1, description: "yes", poll_count: 0},
-        {id: 2, description: "definately yes", poll_count: 0}
-      ]
-    };
-
-    parent.state = {
-      question: question
-    };
-    // props.answers
   }
-  // data = props.ans
 
   render() {
     let data_values = [];
     let data_labels = [];
     console.log(this.props);
     this.props.answers.forEach(function (json_data) {
-      data_values.append(json_data.poll_count);
-      data_labels.append(json_data.description);
+      data_values.push(json_data.poll_count);
+      data_labels.push(json_data.description);
     });
 
     var data = {
@@ -56,10 +42,7 @@ class BarChartCustom extends React.Component {
     };
     //const parent = this;
     return (
-      <section className="barchart">
-        <h1>My Chart Here</h1>
-        <BarChart data={data} options={chartOptions} width="1000" height="500"/>
-      </section>
+        <BarChart data={data} options={chartOptions}/>
     );
   }
 }

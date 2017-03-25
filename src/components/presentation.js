@@ -21,14 +21,14 @@ function findAnswer(searched_id, question) {
 class Presentation extends Component {
   constructor(props) {
     super(props);
-    this.socket = SocketIO('http://118.138.41.192:1337');
+    this.socket = SocketIO('http://118.138.55.15:1337');//'http://118.138.41.192:1337');
 
     let question = {
         id: 0,
         description: "Do you think Pineapple Bae should win Hackamon?",
         answers: [
             {id: 1, description: "Yes!!", poll_count: 0, background_color: "#3272b7"},
-            {id: 2, description: "Definitely Yes!!!", poll_count: 0, background_color: "#5cb85c"}
+            {id: 2, description: "Definitely Yes!!!", poll_count: 0, background_color: "#3272b7"}
         ]
     };
     this.username = this.props.location.query.username;
@@ -58,7 +58,7 @@ class Presentation extends Component {
         });
       }
     });
-    this.socket.emit('get_question', this.state.question.id);
+    this.socket.emit('get_question', {question_id: this.state.question.id});
   }
 
   renderPollView() {
@@ -97,6 +97,7 @@ class Presentation extends Component {
       console.log(partial_answer_data);
   }
   onPollButtonAnswerClick(item, event) {
+      console.log(`Answered question ${item.id}`);
     this.socket.emit('answer_question', {username: this.username, question_id: this.state.question.id, answer_id: item.id});
     // TODO: MAYBE do this after we are told that the answer was succesfully posted???
     /*this.setState({
@@ -136,13 +137,13 @@ class Presentation extends Component {
       return (
         <Grid fluid={true} style={containerStyle}>
           <Row>
-            <Col xs={6} sm={6} md={8}>
+            <Col xs={12} sm={6} md={8}>
                 <div className="card-3">
                     <SlideView socket={this.socket} isPresenter={this.state.isPresenter} />
                 </div>
             </Col>
             <Col xs={0} sm={0} md={0}/>
-              <Col xs={6} sm={6} md={4}><div className="padding-md card-3">{this.renderPollView()}</div></Col>
+              <Col xs={12} sm={6} md={4}><div className="padding-md card-3" style="">{this.renderPollView()}</div></Col>
           </Row>
         </Grid>
       );

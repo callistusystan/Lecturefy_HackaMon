@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Glyphicon, Button, Jumbotron } from 'react-bootstrap';
+import BarChartCustom from './barChart.js';
 
 class BoosterListItem extends Component {
 	constructor(props) {
@@ -64,6 +65,7 @@ class BoosterListItem extends Component {
 						<p key={answer.id}>{`${answer.description}: ${answer.poll_count}`}</p>
 					);
 				})}
+				<BarChartCustom answers={this.props.question.answers}/>
 				</div>
 			);
 		} else if (name === "Chat") {
