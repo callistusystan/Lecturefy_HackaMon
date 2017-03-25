@@ -12,6 +12,7 @@ class BoosterListItem extends Component {
 			definitelyYes: 0,
 			expanded: false
 		};
+
 	}
 
 	componentDidMount() {
@@ -32,6 +33,7 @@ class BoosterListItem extends Component {
 		const {name} = this.state;
 		if (name === "Hackamon Poll") {
 			// emit hackamon poll stop event
+			this.props.socket.emit('stop_question', { question_id: 0 });
 		}
 	}
 
@@ -57,8 +59,11 @@ class BoosterListItem extends Component {
 			return (
 				<div>
 				<h2 style={{marginTop: '0px'}}>Poll results:</h2>
-				<p>Yes: {yes}</p>
-				<p>Definitely Yes: {definitelyYes}</p>
+				{this.props.question.answers.map((answer)=> {
+					return (
+						<p key={answer.id}>{`${answer.description}: ${answer.poll_count}`}</p>
+					);
+				})}
 				</div>
 			);
 		} else if (name === "Chat") {

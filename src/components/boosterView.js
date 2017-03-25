@@ -24,7 +24,7 @@ class BoosterView extends Component {
     return (boosters.map(booster => {
       return (
         <ListGroupItem key={booster.name}>
-          <BoosterListItem socket={this.props.socket} icon={booster.icon}>{booster.name}</BoosterListItem>
+          <BoosterListItem question={this.props.question} socket={this.props.socket} icon={booster.icon}>{booster.name}</BoosterListItem>
         </ListGroupItem>
 
         );

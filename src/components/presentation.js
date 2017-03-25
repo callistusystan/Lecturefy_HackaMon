@@ -39,6 +39,7 @@ class Presentation extends Component {
     };
 
     this.socket.on('answer_update', (partial_answer_data)=> {
+        console.log("AWER");
         this.onAnswerUpdate(partial_answer_data);
     });
 
@@ -47,6 +48,14 @@ class Presentation extends Component {
       if (!parent.state.isPresenter) {
         parent.setState({
           hasEvent: true
+        });
+      }
+    });
+
+    this.socket.on('hide_question', (question) => {
+      if (!parent.state.isPresenter) {
+        parent.setState({
+          hasEvent: false
         });
       }
     });
@@ -87,6 +96,7 @@ class Presentation extends Component {
       this.setState({
         question: this.state.question
       });
+      console.log(partial_answer_data);
   }
   onPollButtonAnswerClick(item, event) {
     this.socket.emit('answer_question', {username: this.username, question_id: this.state.question.id, answer_id: item.id});
@@ -147,7 +157,7 @@ class Presentation extends Component {
   renderBoosterView() {
     if (this.state.isPresenter) {
       return (
-        <Col xs={4} md={4}><BoosterView socket={this.socket} /></Col>
+        <Col xs={4} md={4}><BoosterView question={this.state.question} socket={this.socket} /></Col>
       );
     }
   }
