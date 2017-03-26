@@ -3,21 +3,16 @@
 This project won <strong>FIRST PLACE</strong> for the Engage Category in the recent Monash Hackamon 2017.
 
 
-The concept is an interactive platform for lecturers to present their powerpoint slides, with special addons/plugins that we call "Boosters". This project was made by Team Pineapple Bae with the following technologies: -
-1. React
-2. Chart.js
-3. Node.js
-4. Express 
-5. Socket.io.
+The concept is an interactive platform for lecturers to present their powerpoint slides, with special addons/plugins that we call "Boosters". This project was made by Team Pineapple Bae with React, Chart.js, Node.js, Express and Socket.io.
 
 
-## Frontend
+## Frontend Development Team
 1. Patrick Shaw
 2. Callistus Tan
 3. Ramzi Hossari
 4. Pedro Coelho Pais
 
-## Backend
+## Backend Development Team
 1. David Lei
 2. Liam Ketchup
 3. Patrick Shaw
