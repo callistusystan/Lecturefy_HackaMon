@@ -26,7 +26,7 @@ The concept is an interactive platform for lecturers to present their powerpoint
 <img src="/screenshots/screenshot2.png" width="240">
 
 
-### Step 1: Presenters see the Poll immediately.
+### Step 3: Presenters see the Poll immediately.
 <img src="/screenshots/screenshot3.png" width="240">
 
 
