@@ -16,17 +16,23 @@ Project was made by Team Pineapple Bae: -
 
 The concept is an interactive platform for lecturers to present their powerpoint slides, with special addons/plugins that we call "Boosters".
 
+## Example Concept
+
+### Step 1: Lecturer starts a presentation.
 <img src="/screenshots/screenshot1.png" width="240">
-Lecturer starts a presentation.
 
+
+### Step 2: Lecturer adds a Poll booster.
 <img src="/screenshots/screenshot2.png" width="240">
-Lecturer adds a Poll booster.
 
+
+### Step 1: Presenters see the Poll immediately.
 <img src="/screenshots/screenshot3.png" width="240">
-Presenters see the Poll.
 
+
+### Step 4: Lecturer sees the Poll results in real-time
 <img src="/screenshots/screenshot4.png" width="240">
-Lecturer sees the Poll results in real-time.
+
 
 ### Usage ###
 
