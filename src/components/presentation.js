@@ -27,15 +27,16 @@ class Presentation extends Component {
         id: 0,
         description: "Do you think Pineapple Bae should win Hackamon?",
         answers: [
-            {id: 1, description: "Yes!!", poll_count: 0, background_color: "#3272b7"},
-            {id: 2, description: "Definitely Yes!!!", poll_count: 0, background_color: "#3272b7"}
+            {id: 1, description: "Yes!!", poll_count: 0, background_color: "#909090"},
+            {id: 2, description: "Definitely Yes!!!", poll_count: 0, background_color: "#909090"}
         ]
     };
     this.username = this.props.location.query.username;
     this.state = {
       isPresenter: false,
       hasEvent: false,
-      question: question
+      question: question,
+      selected_button: null
     };
 
     this.socket.on('answer_update', (partial_answer_data)=> {
@@ -74,7 +75,7 @@ class Presentation extends Component {
                 key={answer.id}
                 onClick={parent.onPollButtonAnswerClick.bind(parent, answer)}
                 bsStyle="success"
-                style={{marginTop: '10px', width: '200px', backgroundColor: answer.background_color}}>
+                style={{border: 'none', marginTop: '10px', width: '200px', backgroundColor: this.state.selected_button_answer_id === answer.id ? "#3272b7" : answer.background_color}}>
                 {answer.description}
               </Button>
               <br />
@@ -101,6 +102,9 @@ class Presentation extends Component {
   }
   onPollButtonAnswerClick(item, event) {
       console.log(`Answered question ${item.id}`);
+    this.setState({
+      selected_button_answer_id: item.id
+    });
     this.socket.emit('answer_question', {username: this.username, question_id: this.state.question.id, answer_id: item.id});
     // TODO: MAYBE do this after we are told that the answer was succesfully posted???
     /*this.setState({
