@@ -27,20 +27,18 @@ class Presentation extends Component {
         id: 0,
         description: "Do you think Pineapple Bae should win Hackamon?",
         answers: [
-            {id: 1, description: "Yes!!", poll_count: 0, background_color: "#909090"},
-            {id: 2, description: "Definitely Yes!!!", poll_count: 0, background_color: "#909090"}
+            {id: 1, description: "Yes!!", poll_count: 0, background_color: "#909090", audits: []},
+            {id: 2, description: "Definitely Yes!!!", poll_count: 0, background_color: "#909090", audits: []}
         ]
     };
     this.username = this.props.location.query.username;
     this.state = {
       isPresenter: false,
       hasEvent: false,
-      question: question,
-      selected_button: null
+      question: question
     };
 
     this.socket.on('answer_update', (partial_answer_data)=> {
-        console.log("AWER");
         this.onAnswerUpdate(partial_answer_data);
     });
 
@@ -69,13 +67,23 @@ class Presentation extends Component {
           <h2>{this.state.question.description}</h2>
           <form className="form-group">
           {this.state.question.answers.map((answer)=> {
+            console.log(this.state.question);
+            let test = false;
+            answer.audits.some((audit)=>{
+              let test_2 = audit.username === this.props.location.query.username;
+              console.log(`${this.props.location.query.username} vs ${audit.usernmae}`);
+              if(test_2) {
+                test = true;
+              }
+              return test_2;
+            });
             return (
               <div>
               <Button
                 key={answer.id}
                 onClick={parent.onPollButtonAnswerClick.bind(parent, answer)}
                 bsStyle="success"
-                style={{border: 'none', marginTop: '10px', width: '200px', backgroundColor: this.state.selected_button_answer_id === answer.id ? "#3272b7" : answer.background_color}}>
+                style={{border: 'none', marginTop: '10px', width: '200px', backgroundColor: test ? "#3272b7" : answer.background_color}}>
                 {answer.description}
               </Button>
               <br />
@@ -94,10 +102,14 @@ class Presentation extends Component {
           console.log(`Answer with id ${partial_answer_data.answer.id} was null`);
           return;
       }
+      selected_answer.audits = partial_answer_data.answer.audits;
       selected_answer.poll_count = partial_answer_data.answer.poll_count;
+      console.log("SELECTED ANSWER");
       this.setState({
         question: this.state.question
       });
+      console.log(this.state.question);
+
       console.log(partial_answer_data);
   }
   onPollButtonAnswerClick(item, event) {

@@ -27,7 +27,7 @@ class AuthcatePage extends React.Component {
                 <div className="row h-match-parent">
                     <section className="col-md-7 col-sm-6 col-xs-0 authcate-side-hero">
                         <div className="row">
-                            <img className="h-match-parent w-match-parent" src={BackgroundMonashAuthcate}/>
+                            <img className="monash-hero-image w-match-parent" src={BackgroundMonashAuthcate}/>
                         </div>
                     </section>
                     <div className="col-md-5 col-sm-6 col-xs-12 authcate-sidebar">
