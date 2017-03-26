@@ -1,7 +1,15 @@
 # Lecturefy
 
-This project won first place for the Engage Category in the recent Monash Hackamon 2017.
-Project was made by Team Pineapple Bae. The technologies used were React, Chart.js, Node.js, Express and Socket.io.
+This project won <strong>FIRST PLACE</strong> for the Engage Category in the recent Monash Hackamon 2017.
+
+
+The concept is an interactive platform for lecturers to present their powerpoint slides, with special addons/plugins that we call "Boosters". This project was made by Team Pineapple Bae with the following technologies: -
+1. React
+2. Chart.js
+3. Node.js
+4. Express 
+5. Socket.io.
+
 
 ## Frontend
 1. Patrick Shaw
@@ -14,9 +22,9 @@ Project was made by Team Pineapple Bae. The technologies used were React, Chart.
 2. Liam Ketchup
 3. Patrick Shaw
 
-The concept is an interactive platform for lecturers to present their powerpoint slides, with special addons/plugins that we call "Boosters".
 
-## Example Concept
+
+## Product Demo (actually demonstrated in the product pitch)
 
 ### Step 1: Lecturer starts a presentation.
 <img src="/screenshots/screenshot1.png" width="480">
