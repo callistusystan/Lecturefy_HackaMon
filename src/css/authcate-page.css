@@ -31,3 +31,16 @@
 .text-link-colored {
     color: #2672ec;
 }
+.monash-hero-image {
+  height: 100%;
+}
+@media (max-width: 767px) {
+  .authcate-side-hero {
+    background-color: #1c5198;
+    height: 150px;
+  }
+  .monash-hero-image {
+    max-height: 150px;
+    max-width: 250px;
+  }
+}
