@@ -21,7 +21,7 @@ function findAnswer(searched_id, question) {
 class Presentation extends Component {
   constructor(props) {
     super(props);
-    this.socket = SocketIO('http://118.138.26.197:1337');//'http://118.138.41.192:1337');
+    this.socket = SocketIO('http://118.139.92.247:1337');//'http://118.138.41.192:1337');
 
     let question = {
         id: 0,
